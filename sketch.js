@@ -8,6 +8,7 @@ var box1, pig1;
 var backgroundImg,platform;
 var bird, slingshot;
 var score = 0;
+var sizeBird = 1;
 
 function preload() {
 
@@ -52,6 +53,14 @@ function draw(){
         background(backgroundImg);
         Engine.update(engine);
         strokeWeight(4);
+        if(keyCode === 49){
+            sizeBird = 1;
+
+        }
+        else if(keyCode === 50){
+            sizeBird = 1.2;
+        }
+        //console.log(bird.body.position);
         box1.display();
         box2.display();
         ground.display();
@@ -70,7 +79,7 @@ function draw(){
         platform.display();
         //log6.display();
         slingshot.display(); 
-        bird.display();  
+        bird.display(sizeBird);  
         increaseScore(pig1.visibility);
         increaseScore(pig3.visibility);
         textSize(12);

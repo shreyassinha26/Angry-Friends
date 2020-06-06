@@ -10,9 +10,20 @@ class Bird extends BaseClass {
     this.gamestate = this.SERVE;
   }
   
-  display() {
+  display(size) {
+    if(size === 1 && this.width === 100 && this.height=== 100 && this.gamestate === this.SERVE){
+      Matter.Body.scale(this.body , 1/2 , 1/2);
+      this.width = 50;
+      this.height = 50;
+    }
+    else if(size === 1.2 && this.width === 50 && this.height=== 50 && this.gamestate === this.SERVE){
+      Matter.Body.scale(this.body ,2 , 2);
+      this.width = 100;
+      this.height = 100;
+    }
     
     super.display();
+    
     if(this.body.velocity.x>10 && this.body.position.x>300){
       var position = [this.body.position.x , this.body.position.y];
       this.location.push(position);
